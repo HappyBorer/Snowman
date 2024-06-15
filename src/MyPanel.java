@@ -68,20 +68,24 @@ public class MyPanel extends JPanel {
         // Нос
         int[] xPoints = new int[]{360, 420, 362};
         int[] yPoints = new int[]{212, 212, 224};
-        g2d.setColor(getBackground());
+        Color ground = getBackground();
+        g2d.setColor(ground);
         g2d.fillPolygon(xPoints, yPoints, 3);
         g2d.setColor(Color.BLACK);
         g2d.drawPolygon(xPoints, yPoints, 3);
 
         // руки
-        xPoints = new int[]{100, 105, 130, 107, 112, 135, 285, 282, 135, 130, 125, 130};
-        yPoints = new int[]{255, 250, 253, 212, 210, 254, 285, 290, 260, 285, 282, 260};
+        xPoints = new int[]{185, 187, 203, 197, 201, 210, 285, 282, 210, 194, 190, 200};
+        yPoints = new int[]{255, 250, 253, 242, 240, 254, 285, 290, 260, 265, 262, 258};
+        g2d.setColor(ground);
+        g2d.fillPolygon(xPoints, yPoints, xPoints.length);
+        g2d.setColor(Color.BLACK);
         g2d.drawPolygon(xPoints, yPoints, xPoints.length);
 
+        xPoints = new int[]{519, 517, 503, 515, 512, 495, 421, 423, 495, 512, 515, 503};
+        yPoints = new int[]{255, 250, 253, 242, 240, 254, 285, 290, 260, 265, 262, 258};
+        g2d.drawPolygon(xPoints, yPoints, xPoints.length);
     }
 
-    public Point interpolate(Point p1, Point p2, double t){
-        return new Point((int) Math.round(p1.x * (1-t) + p2.x * t),
-                (int) Math.round(p1.y * (1-t) + p2.y * t));
-    }
+
 }
